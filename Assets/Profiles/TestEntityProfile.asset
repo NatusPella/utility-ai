@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e566b20468f8154d845b62497548ee9, type: 3}
+  m_Name: TestEntityProfile
+  m_EditorClassIdentifier: 
+  name: Test
+  ruleGroups:
+  - name: Random idea
+    priority: 0
+    utility: 0
+    rules:
+    - name: Random float
+      inputs: []
+      curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+      action: {fileID: 0}
+      utility: 0
+    highestRule:
+      name: 
+      inputs: []
+      curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+      action: {fileID: 0}
+      utility: 0
+  - name: 
+    priority: 0
+    utility: 0
+    rules: []
+    highestRule:
+      name: 
+      inputs: []
+      curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+      action: {fileID: 0}
+      utility: 0
