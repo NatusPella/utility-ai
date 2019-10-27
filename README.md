@@ -1,7 +1,7 @@
 # Utility AI
 Open source utility AI system for Unity3D
 
-## Components
+## Setup
 
 1. Add a singular ``Manager`` component to a scene
 2. Add an ``Entity`` for each unit that should have AI control
