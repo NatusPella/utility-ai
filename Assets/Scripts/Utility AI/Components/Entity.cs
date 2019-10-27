@@ -8,9 +8,12 @@ namespace MuchMedia.UtilityAI
     public class Entity : MonoBehaviour
     {
         public Profile profile;
-        
-        private Rule activeRule;
 
+        public float minimalActivation = 0.2f;
+
+        private RuleGroup activeRuleGroup;
+        private Rule activeRule;
+                
         public void Tick()
         {
             if (profile == null)
@@ -25,7 +28,8 @@ namespace MuchMedia.UtilityAI
                 {
                     if (activeRule.action.readyForCooldown)
                     {
-                        Rule nextRule = FindNextRule();
+                        RuleGroup nextRuleGroup = FindNextRuleGroup();
+                        Rule nextRule = FindNextRuleGroup().highestRule;
                         if (nextRule == activeRule)
                         {
                             activeRule.action.Tick();
@@ -34,9 +38,16 @@ namespace MuchMedia.UtilityAI
                         {
                             activeRule.action.Cooldown();
 
-                            nextRule.action.Warmup();
-                            nextRule.action.Tick();
+                            if (nextRule != null)
+                            {
+                                if (nextRule.action != null)
+                                {
+                                    nextRule.action.Warmup();
+                                    nextRule.action.Tick();
+                                }                                
+                            }
 
+                            activeRuleGroup = nextRuleGroup;
                             activeRule = nextRule;
                         }
                     }
@@ -47,20 +58,26 @@ namespace MuchMedia.UtilityAI
                 }
                 else
                 {
-                    Rule nextRule = FindNextRule();
+                    RuleGroup nextRuleGroup = FindNextRuleGroup();
+                    Rule nextRule = FindNextRuleGroup().highestRule;
 
-                    if (nextRule.action != null)
+                    if (nextRule != null)
                     {
-                        nextRule.action.Warmup();
-                        nextRule.action.Tick();
-                    }                    
+                        if (nextRule.action != null)
+                        {
+                            nextRule.action.Warmup();
+                            nextRule.action.Tick();
+                        }
+                    }
 
+                    activeRuleGroup = nextRuleGroup;
                     activeRule = nextRule;
                 }                
             }
             else
             {
-                Rule activeRule = FindNextRule();
+                activeRuleGroup = FindNextRuleGroup();
+                activeRule = activeRuleGroup.highestRule;
                 if (activeRule != null)
                 {
                     activeRule.action.Warmup();
@@ -70,16 +87,16 @@ namespace MuchMedia.UtilityAI
                 
         }
 
-        private Rule FindNextRule()
+        private RuleGroup FindNextRuleGroup()
         {
-            Rule nextRule = null;
+            RuleGroup nextRuleGroup = null;
 
             int bestPriority = -1;
-            float bestUtility = 0;
+            float bestUtility = 0f;
 
             foreach (RuleGroup ruleGroup in profile.ruleGroups)
             {
-                if (ruleGroup.priority > bestPriority)
+                if (ruleGroup.priority > Mathf.Max(bestPriority, minimalActivation))
                 {
                     ruleGroup.CalculateUtility();
                     float groupUtility = ruleGroup.utility;
@@ -89,12 +106,13 @@ namespace MuchMedia.UtilityAI
                         bestUtility = groupUtility;
                         bestPriority = ruleGroup.priority;
 
-                        nextRule = ruleGroup.highestRule;
+                        //nextRule = ruleGroup.highestRule;
+                        nextRuleGroup = ruleGroup;
                     }
                 }                
             }
 
-            return nextRule;
+            return nextRuleGroup;
         }
     }
 }

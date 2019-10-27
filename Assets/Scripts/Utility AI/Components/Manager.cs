@@ -29,6 +29,7 @@ namespace MuchMedia.UtilityAI
                     entity.Tick();
                     yield return null;
                 }
+                yield return null;
             }
         }
     }

@@ -33,7 +33,9 @@ namespace MuchMedia.UtilityAI
                     highestUtility = rule.utility;
                     highestRule = rule;
                 }
-            }            
+            }
+
+            utility = total / rules.Length;
         }
     }
 }

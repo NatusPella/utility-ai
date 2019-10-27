@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: f3f3b4ab2087b3f4e858d60990714770, type: 2}
+  minimalActivation: 0.2
 --- !u!1 &1852116411
 GameObject:
   m_ObjectHideFlags: 0

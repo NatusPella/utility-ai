@@ -15,42 +15,64 @@ MonoBehaviour:
   name: Test
   ruleGroups:
   - name: Random idea
-    priority: 0
-    utility: 0
+    priority: 1
     rules:
     - name: Random float
-      inputs: []
+      inputs:
+      - {fileID: 11400000, guid: a97da01b5fbaa684a952c05151ad0cc9, type: 2}
       curve:
         serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 0
-        m_PostInfinity: 0
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
         m_RotationOrder: 0
-      action: {fileID: 0}
-      utility: 0
-    highestRule:
-      name: 
-      inputs: []
-      curve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 0
-        m_PostInfinity: 0
-        m_RotationOrder: 0
-      action: {fileID: 0}
-      utility: 0
-  - name: 
+      action: {fileID: 11400000, guid: 91f0143dd02db91459a72d11b9db7381, type: 2}
+  - name: Random idea 2
     priority: 0
-    utility: 0
-    rules: []
-    highestRule:
-      name: 
-      inputs: []
+    rules:
+    - name: Random float 2
+      inputs:
+      - {fileID: 11400000, guid: a97da01b5fbaa684a952c05151ad0cc9, type: 2}
       curve:
         serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 0
-        m_PostInfinity: 0
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
         m_RotationOrder: 0
-      action: {fileID: 0}
-      utility: 0
+      action: {fileID: 11400000, guid: 91f0143dd02db91459a72d11b9db7381, type: 2}
