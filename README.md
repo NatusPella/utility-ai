@@ -14,4 +14,4 @@ An entity selects the best action to take based on the inputs that it has and th
 
 ## Extend
 
-To extend the capabilities you may (easily) create your own classes that derive from ``Input`` or ``Action``
+To extend the capabilities you may (easily) create your own classes that derive from ``Input`` or ``Action`` to control AI behaviour. You may also create custom ``TagID`` objects to be able to tag other types of objects in the world for your AI to interact with.
