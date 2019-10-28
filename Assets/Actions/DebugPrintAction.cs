@@ -7,8 +7,6 @@ namespace MuchMedia.UtilityAI
     [CreateAssetMenu(menuName = "Utility AI/Actions/Debug print")]
     public class DebugPrintAction : Action
     {
-        public string text;
-
         public override void Warmup()
         {
             Debug.Log("Warmup called", this);

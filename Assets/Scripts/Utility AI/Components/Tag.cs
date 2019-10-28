@@ -6,6 +6,6 @@ namespace MuchMedia.UtilityAI
 {
     public class Tag : MonoBehaviour
     {
-        
+        public TagID id;
     }
 }

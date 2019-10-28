@@ -7,7 +7,7 @@ namespace MuchMedia.UtilityAI
 
     public class Entity : MonoBehaviour
     {
-        public Profile profile;
+        public EntityProfile profile;
 
         public float minimalActivation = 0.2f;
 
