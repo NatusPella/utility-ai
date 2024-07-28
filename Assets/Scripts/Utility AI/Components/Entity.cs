@@ -77,9 +77,9 @@ namespace MuchMedia.UtilityAI
             else
             {
                 activeRuleGroup = FindNextRuleGroup();
-                activeRule = activeRuleGroup.highestRule;
                 if (activeRule != null)
                 {
+                    activeRule = activeRuleGroup.highestRule;
                     activeRule.action.Warmup();
                     activeRule.action.Tick();
                 }
