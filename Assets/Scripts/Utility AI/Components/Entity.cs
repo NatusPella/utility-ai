@@ -13,16 +13,16 @@ namespace MuchMedia.UtilityAI
 
         private RuleGroup activeRuleGroup;
         private Rule activeRule;
-                
+
         public void Tick()
         {
             if (profile == null)
             {
-                Debug.LogError("Entity was not assigned a profile and cannot run", this);                
+                Debug.LogError("Entity was not assigned a profile and cannot run", this);
                 return;
             }
 
-            if(activeRule != null)
+            if (activeRule != null)
             {
                 if (activeRule.action != null)
                 {
@@ -44,7 +44,7 @@ namespace MuchMedia.UtilityAI
                                 {
                                     nextRule.action.Warmup();
                                     nextRule.action.Tick();
-                                }                                
+                                }
                             }
 
                             activeRuleGroup = nextRuleGroup;
@@ -72,19 +72,19 @@ namespace MuchMedia.UtilityAI
 
                     activeRuleGroup = nextRuleGroup;
                     activeRule = nextRule;
-                }                
+                }
             }
             else
             {
                 activeRuleGroup = FindNextRuleGroup();
-                activeRule = activeRuleGroup.highestRule;
                 if (activeRule != null)
                 {
+                    activeRule = activeRuleGroup.highestRule;
                     activeRule.action.Warmup();
                     activeRule.action.Tick();
                 }
             }
-                
+
         }
 
         private RuleGroup FindNextRuleGroup()
@@ -109,7 +109,7 @@ namespace MuchMedia.UtilityAI
                         //nextRule = ruleGroup.highestRule;
                         nextRuleGroup = ruleGroup;
                     }
-                }                
+                }
             }
 
             return nextRuleGroup;

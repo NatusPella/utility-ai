@@ -23,7 +23,7 @@ namespace MuchMedia.UtilityAI
         IEnumerator TickEntities()
         {
             while (true)
-            {            
+            {
                 foreach (Entity entity in entities)
                 {
                     entity.Tick();
