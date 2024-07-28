@@ -12,4 +12,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e566b20468f8154d845b62497548ee9, type: 3}
   m_Name: SideFighting
   m_EditorClassIdentifier: 
-  ruleGroups: []
+  ruleGroups:
+  - name: Idle
+    priority: 0
+    rules:
+    - name: IdleRule1
+      inputs:
+      - {fileID: 11400000, guid: a97da01b5fbaa684a952c05151ad0cc9, type: 2}
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      action: {fileID: 11400000, guid: 91f0143dd02db91459a72d11b9db7381, type: 2}
