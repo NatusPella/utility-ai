@@ -7,17 +7,17 @@ namespace MuchMedia.UtilityAI
     [CreateAssetMenu(menuName = "Utility AI/Actions/Debug print")]
     public class DebugPrintAction : Action
     {
-        public override void Warmup()
+        public override void Warmup(GameObject gameObject)
         {
             Debug.Log("Warmup called", this);
         }
 
-        public override void Tick()
+        public override void Tick(GameObject gameObject)
         {
             Debug.Log("Tick called", this);
         }
 
-        public override void Cooldown()
+        public override void Cooldown(GameObject gameObject)
         {
             Debug.Log("Cooldown called", this);
         }

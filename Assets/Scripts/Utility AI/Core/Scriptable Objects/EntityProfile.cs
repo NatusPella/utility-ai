@@ -6,7 +6,7 @@ namespace MuchMedia.UtilityAI
 {
     [CreateAssetMenu(menuName = "Utility AI/Entity Profile")]
     public class EntityProfile : ScriptableObject
-    {        
+    {
         public RuleGroup[] ruleGroups;
     }
 }

@@ -9,7 +9,7 @@ namespace MuchMedia.UtilityAI
     {
         public string name;
         public int priority;
-               
+
         public Rule[] rules;
 
         [System.NonSerialized]
@@ -17,15 +17,15 @@ namespace MuchMedia.UtilityAI
 
         [System.NonSerialized]
         public Rule highestRule;
-        
-        public void CalculateUtility()
+
+        public void CalculateUtility(GameObject gameObject)
         {
             highestRule = null;
             float highestUtility = -1;
             float total = 0;
             foreach (Rule rule in rules)
             {
-                rule.CalculateUtility();
+                rule.CalculateUtility(gameObject);
                 total += rule.utility;
 
                 if (rule.utility > highestUtility)

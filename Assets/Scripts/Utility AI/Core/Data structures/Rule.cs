@@ -17,12 +17,12 @@ namespace MuchMedia.UtilityAI
         [System.NonSerialized]
         public float utility;
 
-        public void CalculateUtility()
+        public void CalculateUtility(GameObject gameObject)
         {
-            float total = 0;            
+            float total = 0;
             foreach (Input input in inputs)
             {
-                input.CalculateUtility();
+                input.CalculateUtility(gameObject);
                 total += input.utility;
             }
 

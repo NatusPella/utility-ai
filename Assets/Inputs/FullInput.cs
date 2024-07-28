@@ -4,12 +4,14 @@ using UnityEngine;
 
 namespace MuchMedia.UtilityAI
 {
-    [CreateAssetMenu(menuName = "Utility AI/Inputs/Random float")]
-    public class RandomFloatInput : Input
+    [CreateAssetMenu(menuName = "Utility AI/Inputs/Constant")]
+    public class ConstantInput : Input
     {
+        public float value;
+
         public override void CalculateUtility(GameObject gameObject)
         {
-            rawValue = Random.Range(0f, 1f);
+            rawValue = value;
             base.CalculateUtility(gameObject);
         }
     }

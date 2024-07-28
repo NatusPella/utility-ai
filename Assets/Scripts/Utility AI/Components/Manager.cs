@@ -27,7 +27,6 @@ namespace MuchMedia.UtilityAI
                 foreach (Entity entity in entities)
                 {
                     entity.Tick();
-                    yield return null;
                 }
                 yield return null;
             }

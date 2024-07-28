@@ -24,26 +24,28 @@ namespace MuchMedia.UtilityAI
 
             if (activeRule != null)
             {
+                //Debug.Log("Executing active rule: " + activeRule.name, this);
+
                 if (activeRule.action != null)
                 {
                     if (activeRule.action.readyForCooldown)
                     {
-                        RuleGroup nextRuleGroup = FindNextRuleGroup();
-                        Rule nextRule = FindNextRuleGroup().highestRule;
+                        RuleGroup nextRuleGroup = FindNextRuleGroup(gameObject);
+                        Rule nextRule = nextRuleGroup.highestRule;
                         if (nextRule == activeRule)
                         {
-                            activeRule.action.Tick();
+                            activeRule.action.Tick(gameObject);
                         }
                         else
                         {
-                            activeRule.action.Cooldown();
+                            activeRule.action.Cooldown(gameObject);
 
                             if (nextRule != null)
                             {
                                 if (nextRule.action != null)
                                 {
-                                    nextRule.action.Warmup();
-                                    nextRule.action.Tick();
+                                    nextRule.action.Warmup(gameObject);
+                                    nextRule.action.Tick(gameObject);
                                 }
                             }
 
@@ -53,20 +55,26 @@ namespace MuchMedia.UtilityAI
                     }
                     else
                     {
-                        activeRule.action.Tick();
+                        activeRule.action.Tick(gameObject);
                     }
                 }
                 else
                 {
-                    RuleGroup nextRuleGroup = FindNextRuleGroup();
-                    Rule nextRule = FindNextRuleGroup().highestRule;
+                    //Debug.Log("Finding next rule", this);
+
+                    RuleGroup nextRuleGroup = FindNextRuleGroup(gameObject);
+                    Rule nextRule = null;
+                    //if (nextRuleGroup != null)
+                    //{
+                    nextRule = nextRuleGroup.highestRule;
+                    //}
 
                     if (nextRule != null)
                     {
                         if (nextRule.action != null)
                         {
-                            nextRule.action.Warmup();
-                            nextRule.action.Tick();
+                            nextRule.action.Warmup(gameObject);
+                            nextRule.action.Tick(gameObject);
                         }
                     }
 
@@ -76,18 +84,20 @@ namespace MuchMedia.UtilityAI
             }
             else
             {
-                activeRuleGroup = FindNextRuleGroup();
-                if (activeRule != null)
+                //Debug.Log("Finding and executing active rulegroup", this);
+
+                activeRuleGroup = FindNextRuleGroup(gameObject);
+                if (activeRuleGroup != null)
                 {
                     activeRule = activeRuleGroup.highestRule;
-                    activeRule.action.Warmup();
-                    activeRule.action.Tick();
+                    activeRule.action.Warmup(gameObject);
+                    activeRule.action.Tick(gameObject);
                 }
             }
 
         }
 
-        private RuleGroup FindNextRuleGroup()
+        private RuleGroup FindNextRuleGroup(GameObject gameObject)
         {
             RuleGroup nextRuleGroup = null;
 
@@ -98,7 +108,7 @@ namespace MuchMedia.UtilityAI
             {
                 if (ruleGroup.priority > Mathf.Max(bestPriority, minimalActivation))
                 {
-                    ruleGroup.CalculateUtility();
+                    ruleGroup.CalculateUtility(gameObject);
                     float groupUtility = ruleGroup.utility;
 
                     if (groupUtility > bestUtility)
@@ -111,6 +121,8 @@ namespace MuchMedia.UtilityAI
                     }
                 }
             }
+
+            //Debug.Log("Nextrulegroup: " + nextRuleGroup.name, this);
 
             return nextRuleGroup;
         }
