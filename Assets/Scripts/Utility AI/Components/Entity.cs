@@ -63,11 +63,7 @@ namespace MuchMedia.UtilityAI
                     //Debug.Log("Finding next rule", this);
 
                     RuleGroup nextRuleGroup = FindNextRuleGroup(gameObject);
-                    Rule nextRule = null;
-                    //if (nextRuleGroup != null)
-                    //{
-                    nextRule = nextRuleGroup.highestRule;
-                    //}
+                    Rule nextRule = nextRuleGroup.highestRule;
 
                     if (nextRule != null)
                     {
