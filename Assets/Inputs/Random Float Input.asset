@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8137a14b7fa053d4880265ba896ddb4f, type: 3}
-  m_Name: ndom Float Input
+  m_Name: Random Float Input
   m_EditorClassIdentifier: 
-  rawValue: 0
   curve:
     serializedVersion: 2
     m_Curve:
@@ -37,4 +36,3 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  utility: 0
