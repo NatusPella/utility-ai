@@ -19,7 +19,6 @@ namespace MuchMedia.UtilityAI
         {
             goals = new Dictionary<int, Vector3>();
             waitTimers = new Dictionary<int, float>();
-            //SetNeWGoal(gameObject);
 
             Debug.Log("Warmed up up Wander action", this);
 
